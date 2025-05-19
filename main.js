@@ -17,4 +17,39 @@ consumirApi();
 //TAREA EN INGLES HACER TODO
 //Consumir otra API y mostrar como aqui arriba
 
+//Fetches GitHub users from the public API
+
+const fetchGitHubUsers = () => {
+    fetch("https://api.github.com/users") // Fetch data from Github Api
+        .then((response) => response.json()) // Convert response to JSON
+        .then((data) => console.log(data.results)) // GitHub response is the array itself
+        .catch((error) => console.log("API Error:", error)); // Handle errors
+};
+
+fetchApiData();
+
+
+const fetchGitHubUsers = () => {
+    // Initiate a GET request to GitHub's public users endpoint
+    fetch("https://api.github.com/users")
+        .then((response) => {
+            // Check if the HTTP response was successful (status 200-299)
+            if (!response.ok) {
+                throw new Error(`GitHub API Error: HTTP ${response.status}`);
+            }
+            // Parse the JSON response body
+            return response.json();
+        })
+        .then((users) => {
+            // Process the parsed user data (in this case, just log it)
+            console.log("GitHub Users:", users);
+        })
+        .catch((error) => {
+            // Handle any errors that occurred during the fetch or processing
+            console.error("Request Failed:", error);
+        })
+}
+
+fetchApiData();
+
 
