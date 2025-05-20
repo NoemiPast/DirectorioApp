@@ -8,18 +8,27 @@ const consumirApi = () => {
         //Los datos los vamos a mandar a la consola 
         .then ((data) => {    //puede ser otro nombre, no necesariamente data
             //La data de la api la vamos a llevar al HTML
-            //paso 1. Definimos lasa constantes que vamos a usar y el HTML que vamos a afectar
+            //paso 1. Definimos las constantes que vamos a usar y el HTML que vamos a afectar
             const nombre = document.getElementById("nombre");
             const nombreUsuario = document.getElementById("nombreUsuario");
             const email = document.getElementById("email");
             const phone = document.getElementById("phone");
             const website = document.getElementById("website");
+                const street = document.getElementById("street");
+                const suite = document.getElementById("suite");
+                const city = document.getElementById("city");
+                const zipcode = document.getElementById("zipcode");
 
-            nombre.innerText = data[6].name; //data es un array/arreglo, por eso el [0]
-            nombreUsuario.innerText = data[6].username;
-            email.innerText = data[6].email;
-            phone.innerText = data[6].phone;
-            website.innerText = data[6].website;
+            //data es un array/arreglo, por eso el [0]
+            nombre.innerText = data[6].name
+            nombreUsuario.innerText = data[6].name
+            email.innerText = data[6].email
+            phone.innerText = data[6].phone
+            website.innerText = data[6].website
+                street.innerText = data[6].address.street
+                suite.innerText = data[6].address.suite
+                city.innerText = data[6].address.city
+                zipcode.innerText = data[6].address.zipcode
 
        }) 
         //Descubrir que hacer en caso de que no me corresponda
